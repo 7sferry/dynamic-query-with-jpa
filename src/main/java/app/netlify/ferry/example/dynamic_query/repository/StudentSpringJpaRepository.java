@@ -20,6 +20,7 @@ public interface StudentSpringJpaRepository extends JpaRepository<Student, Long>
 			"where " +
 			"(:#{#filter?.active} is null or s.active = :#{#filter?.active}) AND " +
 			"(:#{#filter?.nik} is null or s.nik = :#{#filter?.nik}) AND " +
+			"(:#{#filter?.batchYear} is null or s.studentBatch.batchYear = :#{#filter?.batchYear}) AND " +
 			"(:#{#filter?.birthDateRangeStart?.toString()} is null or :#{#filter?.birthDateRangeEnd?.toString()} is null or " +
 			"s.birthDate BETWEEN :#{#filter?.birthDateRangeStart} AND :#{#filter.birthDateRangeEnd}) AND " +
 			"(:#{#filter?.studentName} is null or s.studentName LIKE %:#{#filter?.studentName}%) AND " +
